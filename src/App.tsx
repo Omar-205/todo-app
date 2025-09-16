@@ -39,7 +39,7 @@ function App() {
     }
 
     useEffect(() => {
-      if(!localStorage ) return;
+      if(!localStorage || !localStorage.getItem('todo-app') ) return;
       const storedData = localStorage.getItem('todo-app');
       const db = storedData ? JSON.parse(storedData) : [];
       setTodos(db.todos);

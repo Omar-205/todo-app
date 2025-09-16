@@ -13,10 +13,10 @@ export function Tabs({todos, selectedTab, setSelectedTab}: Readonly<IProps>){
         <nav className="tab-container">
             {tabs.map((tab, tabIndex)=>{
                 const numberOfTasks = (tab == "All"?
-                todos.length:
+                (todos ?? 0).length:
                 (tab == "Open"?
-                todos.filter(val=> !val?.complete).length:
-                todos.filter(val=> val.complete).length
+                (todos ?? 0).filter(val=> !val?.complete).length:
+                (todos ?? 0).filter(val=> val.complete).length
                 ))
                 return (
                     <button 
